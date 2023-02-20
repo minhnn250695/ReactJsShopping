@@ -8,7 +8,7 @@ PaymentFeature.propTypes = {
 function PaymentFeature(props) {
     return (
         <div>
-            
+            Payment feature
         </div>
     );
 }
