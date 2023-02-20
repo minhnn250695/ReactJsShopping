@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import productApi from 'services/productApi';
 import { Button } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import OpenDialog from 'features/auth/components/open-dialog';
+import OpenDialog from 'components/open-dialog';
 
 ProductList.propTypes = {
   products: PropTypes.array,
