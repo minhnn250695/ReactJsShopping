@@ -18,17 +18,11 @@ function ProductFeature(props) {
     }
     fetchData();
   }, []);
-
-  const onclick = () =>{
-    navigate('/login');
-
-  }
-
+  
   return (
     <div>
       <h1>Product container</h1>
       <ProductList products={products}></ProductList>
-      <button onClick={onclick}>Logout</button>
     </div>
   );
 }

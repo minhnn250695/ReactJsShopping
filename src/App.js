@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, createBrowserRouter, NavLink, Route, Router, RouterProvider, Routes } from 'react-router-dom';
 import ProductFeature from 'features/products';
 import PaymentFeature from 'features/payment';
-import LoginFeature from 'features/auth/login';
+import LoginFeature from 'features/auth';
 import Header from 'components/header';
 import CardFeature from 'features/cart';
 import { Button, Container } from '@mui/material';
