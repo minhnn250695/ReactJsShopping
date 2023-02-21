@@ -16,9 +16,12 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import './styles.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, logout } from 'features/auth/userSlice';
+import { getAuth, onAuthStateChanged, signOut} from 'firebase/auth';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -62,18 +65,27 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-
   const isMenuOpen = Boolean(anchorEl);
-  const [isSignedIn, setIsSignedIn] = React.useState(false); // Local signed-in state.
-
-  // Listen to the Firebase Auth state and set the local state.
+  const userState = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const [isHomeRoute, setIsHomeRoute] = React.useState(false);
+  const [isNotLoginRoute, setIsNotLoginRoute] = React.useState(false);
   React.useEffect(() => {
-    const unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
-      console.log('User information: ',user && user.multiFactor && user.multiFactor.user);
-      setIsSignedIn(!!user);
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(login(user));
+      } else {
+        // dispatch(logout());
+        // navigate('/login');
+      }
     });
-    return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
-  }, []);
+  },[]);
+  React.useEffect(() => {
+    setIsHomeRoute(location.pathname === '/');
+    setIsNotLoginRoute(location.pathname !== '/login');
+  }, [location.pathname]);
 
   let navigate = useNavigate();
   const handleProfileMenuOpen = (event) => {
@@ -88,7 +100,16 @@ export default function Header() {
     handleMenuClose();
     switch (value) {
       case 'Logout':
-        firebase.auth().signOut();
+        dispatch(logout());
+        const auth = getAuth();
+        signOut(auth)
+          .then(() => {
+            dispatch(logout());
+            // Sign-out successful.
+          })
+          .catch((error) => {
+            // An error happened.
+          });
         navigate('/login');
         break;
 
@@ -133,7 +154,7 @@ export default function Header() {
             </SearchIconWrapper>
             <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
           </Search>
-          {isSignedIn && (
+          {userState.user && isNotLoginRoute && (
             <>
               <Box sx={{ flexGrow: 1 }} />
               <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -141,8 +162,12 @@ export default function Header() {
                 <NavLink className="nav-link" to="/products">
                   Products
                 </NavLink>
-                <NavLink className="nav-link" to="/cart">Cart</NavLink>
-                <NavLink className="nav-link" to="/payment">Payment</NavLink>
+                <NavLink className="nav-link" to="/cart">
+                  Cart
+                </NavLink>
+                <NavLink className="nav-link" to="/payment">
+                  Payment
+                </NavLink>
                 <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                   <Badge badgeContent={4} color="error">
                     <ShoppingCartIcon />
@@ -167,7 +192,7 @@ export default function Header() {
               </Box>
             </>
           )}
-          {!isSignedIn && (
+          {!userState.user && isHomeRoute && (
             <>
               <NavLink className="nav-link" to="/login">
                 Login

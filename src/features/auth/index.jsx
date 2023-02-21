@@ -3,6 +3,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import LoginForm from './components/login-form';
+import { useSelector } from 'react-redux';
 
 // Configure Firebase.
 const config = {
@@ -18,40 +19,25 @@ const uiConfig = {
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
   signInSuccessUrl: '/products',
   // We will display Google and Facebook as auth providers.
-  signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     //  firebase.auth.FacebookAuthProvider.PROVIDER_ID
   ],
 };
 
 LoginFeature.propTypes = {};
-
 function LoginFeature(props) {
-    const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
+  const userState = useSelector((state) => state.user);
 
-    // Listen to the Firebase Auth state and set the local state.
-    useEffect(() => {
-      const unregisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
-        setIsSignedIn(!!user);
-      });
-      return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
-    }, []);
-  
-    if (!isSignedIn) {
-      return (
-        <div>
-          <LoginForm></LoginForm>
-          {/* <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} /> */}
-          <StyledFirebaseAuth uiCallback={ui => ui.disableAutoSignIn()} uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
-        </div>
-      );
-    }
+  if (!userState.user) {
     return (
       <div>
-        <h1>My App</h1>
-        <p>Welcome {firebase.auth().currentUser.displayName}! You are now signed-in!</p>
-        <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
+        <LoginForm></LoginForm>
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+        {/* <StyledFirebaseAuth uiCallback={ui => ui.disableAutoSignIn()} uiConfig={uiConfig} firebaseAuth={firebase.auth()}/> */}
       </div>
     );
+  }
 }
 
 export default LoginFeature;
