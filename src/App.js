@@ -1,11 +1,11 @@
-import './App.css';
-import { BrowserRouter, createBrowserRouter, NavLink, Route, Router, RouterProvider, Routes } from 'react-router-dom';
-import ProductFeature from 'features/products';
-import PaymentFeature from 'features/payment';
-import LoginFeature from 'features/auth';
+import { Container } from '@mui/material';
 import Header from 'components/header';
+import LoginFeature from 'features/auth/pages/login';
 import CardFeature from 'features/cart';
-import { Button, Container } from '@mui/material';
+import PaymentFeature from 'features/payment';
+import ProductFeature from 'features/products';
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
 
 function App() {
   return (

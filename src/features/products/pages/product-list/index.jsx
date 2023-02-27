@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import productApi from 'services/productApi';
-import { Button } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import OpenDialog from 'components/open-dialog';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 ProductList.propTypes = {
   products: PropTypes.array,

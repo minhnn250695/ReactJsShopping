@@ -1,0 +1,8 @@
+.flex.justify-content-end {
+    display: flex;
+    justify-content: center;
+    .sign-in-button {
+        width: 100%;
+        margin: 1rem auto;
+    }
+}

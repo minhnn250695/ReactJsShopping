@@ -1,27 +1,25 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import Badge from '@mui/material/Badge';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import './styles.scss';
+import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { alpha, styled } from '@mui/material/styles';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { login, logout } from 'features/auth/pages/userSlice';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import 'firebase/compat/auth';
+import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from 'features/auth/userSlice';
-import { getAuth, onAuthStateChanged, signOut} from 'firebase/auth';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import './styles.scss';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -66,7 +64,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
-  const userState = useSelector((state) => state.user);
+  const userState = useSelector((state) => state.userState);
   const dispatch = useDispatch();
   const location = useLocation();
   const [isHomeRoute, setIsHomeRoute] = React.useState(false);
