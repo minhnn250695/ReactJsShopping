@@ -12,6 +12,7 @@ function ProductFeature(props) {
   // call api get product list
   let [products, setProducts] = useState([]);
   useEffect(() => {
+    // /items?_page=2
     async function fetchData() {
       const response = await productApi.getAll();
       setProducts(response);
