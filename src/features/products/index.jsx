@@ -1,20 +1,16 @@
-import ProductList from './pages/product-list';
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import productApi from 'services/productApi';
+import ProductList from './pages/product-list';
 import './styles.scss';
-import { useNavigate } from 'react-router-dom';
 
 ProductFeature.propTypes = {};
 
 function ProductFeature(props) {
-    let navigate =  useNavigate();
   // call api get product list
   let [products, setProducts] = useState([]);
   useEffect(() => {
-    // /items?_page=2
     async function fetchData() {
-      const response = await productApi.getAll();
+      const response = await productApi.getProductItems({page: 1, _limit:2});
       setProducts(response);
     }
     fetchData();
