@@ -3,6 +3,7 @@ import Header from 'components/header';
 import LoginFeature from 'features/auth/pages/login';
 import CardFeature from 'features/cart';
 import LayoutAbout from 'features/layout/about';
+import LayoutCart from 'features/layout/cart';
 import LayoutContact from 'features/layout/contact';
 import LayoutHeader from 'features/layout/header';
 import Home from 'features/layout/home';
@@ -22,7 +23,7 @@ function App() {
         <Route path="/login" element={<LoginFeature />} />
         {/* <Route path="/products" element={<ProductFeature />} /> */}
         <Route path="/products" element={<LayoutProduct />} />
-        <Route path="/cart" element={<CardFeature />} />
+        <Route path="/cart" element={<LayoutCart />} />
         <Route path="/payment" element={<PaymentFeature />} />
         <Route path="/about" element={<LayoutAbout />} />
         <Route path="/contact" element={<LayoutContact />} />

@@ -11,13 +11,7 @@ Home.propTypes = {};
 function Home(props) {
   return (
     <div>
-        <LayoutHeader/>
-        <div style={{marginTop: '100px'}}></div>
-
-        <LayoutCart/>
-
         <LayoutProduct/>
-
         <div style={{marginTop: '200px'}}></div>
         <LayoutFooter/>
     </div>
