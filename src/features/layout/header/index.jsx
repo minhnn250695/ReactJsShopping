@@ -1,10 +1,11 @@
 import React from 'react';
-import './style.scss'
+import { NavLink } from 'react-router-dom';
+import './style.scss';
 LayoutHeader.propTypes = {};
 
 function LayoutHeader(props) {
   return (
-    <div>
+    <div style={{marginBottom: '100px'}}>
       <header>
         <div className="container-menu-desktop">
           {/* <div className="top-bar">
@@ -33,44 +34,36 @@ function LayoutHeader(props) {
 
           <div className="wrap-menu-desktop">
             <nav className="limiter-menu-desktop container">
-              <a href="#" className="logo">
+              <a href="/" className="logo">
                 <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
               </a>
 
               <div className="menu-desktop">
                 <ul className="main-menu">
-                  <li className="active-menu">
-                    <a href="index.html">Home</a>
-                    <ul className="sub-menu">
-                      <li>
-                        <a href="index.html">Homepage 1</a>
-                      </li>
-                      <li>
-                        <a href="home-02.html">Homepage 2</a>
-                      </li>
-                      <li>
-                        <a href="home-03.html">Homepage 3</a>
-                      </li>
-                    </ul>
+                  <li>
+                    <NavLink className="nav-link" to="/">
+                      Home
+                    </NavLink>
                   </li>
                   <li>
-                    <a href="product.html">Shop</a>
+                    <NavLink className="nav-link" to="/products">
+                      Products
+                    </NavLink>
                   </li>
-
-                  <li className="label1" data-label1="hot">
-                    <a href="shoping-cart.html">Features</a>
-                  </li>
-
                   <li>
-                    <a href="blog.html">Blog</a>
+                    <NavLink className="nav-link" to="/cart">
+                      Cart
+                    </NavLink>
                   </li>
-
                   <li>
-                    <a href="about.html">About</a>
+                    <NavLink className="nav-link" to="/about">
+                      About
+                    </NavLink>
                   </li>
-
                   <li>
-                    <a href="contact.html">Contact</a>
+                    <NavLink className="nav-link" to="/contact">
+                      Contact
+                    </NavLink>
                   </li>
                 </ul>
               </div>
