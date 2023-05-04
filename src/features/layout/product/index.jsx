@@ -156,7 +156,7 @@ function LayoutProduct(props) {
 
                   <ul>
                     <li className="p-b-6">
-                      <span className="fs-15 lh-12 m-r-6" style={{color: "#222"}}>
+                      <span className="fs-15 lh-12 m-r-6" style={{ color: '#222' }}>
                         <i className="zmdi zmdi-circle"></i>
                       </span>
 
@@ -166,7 +166,7 @@ function LayoutProduct(props) {
                     </li>
 
                     <li className="p-b-6">
-                      <span className="fs-15 lh-12 m-r-6" style={{color: "#4272d7"}}>
+                      <span className="fs-15 lh-12 m-r-6" style={{ color: '#4272d7' }}>
                         <i className="zmdi zmdi-circle"></i>
                       </span>
 
@@ -176,7 +176,7 @@ function LayoutProduct(props) {
                     </li>
 
                     <li className="p-b-6">
-                      <span className="fs-15 lh-12 m-r-6" style={{color: "#b3b3b3"}}>
+                      <span className="fs-15 lh-12 m-r-6" style={{ color: '#b3b3b3' }}>
                         <i className="zmdi zmdi-circle"></i>
                       </span>
 
@@ -186,7 +186,7 @@ function LayoutProduct(props) {
                     </li>
 
                     <li className="p-b-6">
-                      <span className="fs-15 lh-12 m-r-6" style={{color: "#00ad5f"}}>
+                      <span className="fs-15 lh-12 m-r-6" style={{ color: '#00ad5f' }}>
                         <i className="zmdi zmdi-circle"></i>
                       </span>
 
@@ -196,7 +196,7 @@ function LayoutProduct(props) {
                     </li>
 
                     <li className="p-b-6">
-                      <span className="fs-15 lh-12 m-r-6" style={{color: "#fa4251"}}>
+                      <span className="fs-15 lh-12 m-r-6" style={{ color: '#fa4251' }}>
                         <i className="zmdi zmdi-circle"></i>
                       </span>
 
@@ -206,7 +206,7 @@ function LayoutProduct(props) {
                     </li>
 
                     <li className="p-b-6">
-                      <span className="fs-15 lh-12 m-r-6" style={{color: "#aaa"}}>
+                      <span className="fs-15 lh-12 m-r-6" style={{ color: '#aaa' }}>
                         <i className="zmdi zmdi-circle-o"></i>
                       </span>
 
