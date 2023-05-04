@@ -12,6 +12,7 @@ import PaymentFeature from 'features/payment';
 import ProductFeature from 'features/products';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import LayoutProductDetail from 'features/layout/product-detail';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<LoginFeature />} />
         {/* <Route path="/products" element={<ProductFeature />} /> */}
         <Route path="/products" element={<LayoutProduct />} />
+        <Route path="/product-detail/:id" element={<LayoutProductDetail />} />
         <Route path="/cart" element={<LayoutCart />} />
         <Route path="/payment" element={<PaymentFeature />} />
         <Route path="/about" element={<LayoutAbout />} />
