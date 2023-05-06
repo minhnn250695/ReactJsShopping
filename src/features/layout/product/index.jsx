@@ -1,15 +1,21 @@
 import ProductItem from 'components/product-item';
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import productApi from 'services/productApi';
+import { get } from './productSlice';
 
 function LayoutProduct(props) {
   const [filter, setFilter] = useState();
   const [products, setProducts] = useState([]);
+  // const productState = useSelector(state => state.productState)
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     async function fetchData() {
       let response = await productApi.getProductItems({ page: 1, _limit: 20 });
       setProducts(response);
+      dispatch(get(response))
     }
     fetchData();
   }, []);
@@ -26,7 +32,7 @@ function LayoutProduct(props) {
         productName={product.productName}
         thumbnail={product.thumbnail}
       ></ProductItem>
-    ));
+    )); 
 
   return (
     <div>
@@ -273,14 +279,10 @@ function LayoutProduct(props) {
             </div>
           </div>
 
-          <div className="row isotope-grid">
-            {renderProductList}
-          </div>
+          <div className="row isotope-grid">{renderProductList}</div>          
 
           <div className="flex-c-m flex-w w-full p-t-45">
-            <a className="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-              Load More
-            </a>
+            <a className="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">Load More</a>
           </div>
         </div>
       </section>

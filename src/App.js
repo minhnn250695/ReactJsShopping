@@ -1,24 +1,20 @@
-import { Container } from '@mui/material';
-import Header from 'components/header';
 import LoginFeature from 'features/auth/pages/login';
-import CardFeature from 'features/cart';
 import LayoutAbout from 'features/layout/about';
 import LayoutCart from 'features/layout/cart';
 import LayoutContact from 'features/layout/contact';
 import LayoutHeader from 'features/layout/header';
 import Home from 'features/layout/home';
 import LayoutProduct from 'features/layout/product';
+import LayoutProductDetail from 'features/layout/product-detail';
 import PaymentFeature from 'features/payment';
-import ProductFeature from 'features/products';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import LayoutProductDetail from 'features/layout/product-detail';
 
 function App() {
   return (
     <div>
       {/* <Header /> */}
-      <LayoutHeader/>
+      <LayoutHeader />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginFeature />} />

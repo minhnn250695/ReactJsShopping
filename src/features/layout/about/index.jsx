@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 function LayoutAbout(props) {
+  const productState = useSelector((state) => state.productState);
+
+  useEffect(() => {
+    console.log(productState.productList);
+  }, []);
   return (
     <div>
-      <section className="bg-img1 txt-center p-lr-15 p-tb-92" style={{backgroundImage: "url('images/bg-01.jpg')"}}>
+      <section className="bg-img1 txt-center p-lr-15 p-tb-92" style={{ backgroundImage: "url('images/bg-01.jpg')" }}>
         <h2 className="ltext-105 cl0 txt-center">About</h2>
       </section>
 

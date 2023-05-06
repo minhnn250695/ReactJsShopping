@@ -83,7 +83,7 @@ function LayoutCart(props) {
         </div>
       </div>
 
-      <form className="bg0 p-t-75 p-b-85">
+      <div className="bg0 p-t-75 p-b-85" >
         <div className="container">
           <div className="row">
             <div className="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -264,7 +264,7 @@ function LayoutCart(props) {
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

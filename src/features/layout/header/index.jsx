@@ -49,20 +49,19 @@ function LayoutHeader(props) {
                   <i className="zmdi zmdi-search"></i>
                 </div>
 
-                <div
+                <NavLink to="/cart"
                   className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
                   data-notify="2"
                 >
                   <i className="zmdi zmdi-shopping-cart"></i>
-                </div>
+                </NavLink>
 
-                <a
-                  href="#"
+                <button 
                   className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
                   data-notify="0"
                 >
                   <i className="zmdi zmdi-favorite-outline"></i>
-                </a>
+                </button>
               </div>
             </nav>
           </div>
@@ -74,12 +73,12 @@ function LayoutHeader(props) {
               <img src="images/icons/icon-close2.png" alt="CLOSE" />
             </button>
 
-            <form className="wrap-search-header flex-w p-l-15">
+            <div className="wrap-search-header flex-w p-l-15">
               <button className="flex-c-m trans-04">
                 <i className="zmdi zmdi-search"></i>
               </button>
               <input className="plh3" type="text" name="search" placeholder="Search..." />
-            </form>
+            </div>
           </div>
         </div>
       </header>
