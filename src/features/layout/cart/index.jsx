@@ -1,6 +1,8 @@
 import React from 'react';
 
 function LayoutCart(props) {
+  const handleChange = () => {};
+
   return (
     <div>
       <div className="wrap-header-cart js-panel-cart">
@@ -83,7 +85,7 @@ function LayoutCart(props) {
         </div>
       </div>
 
-      <div className="bg0 p-t-75 p-b-85" >
+      <div className="bg0 p-t-75 p-b-85">
         <div className="container">
           <div className="row">
             <div className="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -119,6 +121,7 @@ function LayoutCart(props) {
                               className="mtext-104 cl3 txt-center num-product"
                               type="number"
                               name="num-product1"
+                              onChange={handleChange}
                               value="1"
                             />
 
@@ -148,6 +151,7 @@ function LayoutCart(props) {
                               className="mtext-104 cl3 txt-center num-product"
                               type="number"
                               name="num-product2"
+                              onChange={handleChange}
                               value="1"
                             />
 
@@ -168,6 +172,7 @@ function LayoutCart(props) {
                       className="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5"
                       type="text"
                       name="coupon"
+                      onChange={handleChange}
                       placeholder="Coupon Code"
                     />
 
@@ -225,6 +230,7 @@ function LayoutCart(props) {
                           className="stext-111 cl8 plh3 size-111 p-lr-15"
                           type="text"
                           name="state"
+                          onChange={handleChange}
                           placeholder="State /  country"
                         />
                       </div>
@@ -234,6 +240,7 @@ function LayoutCart(props) {
                           className="stext-111 cl8 plh3 size-111 p-lr-15"
                           type="text"
                           name="postcode"
+                          onChange={handleChange}
                           placeholder="Postcode / Zip"
                         />
                       </div>

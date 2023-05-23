@@ -11,7 +11,7 @@ function LayoutHeader(props) {
           <div className="wrap-menu-desktop">
             <nav className="limiter-menu-desktop container">
               <a href="/" className="logo">
-                <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
+                <img src="/images/icons/logo-01.png" alt="IMG-LOGO" />
               </a>
 
               <div className="menu-desktop">
